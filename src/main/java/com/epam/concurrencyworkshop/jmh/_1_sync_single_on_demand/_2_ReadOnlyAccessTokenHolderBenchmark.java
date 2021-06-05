@@ -1,10 +1,11 @@
 package com.epam.concurrencyworkshop.jmh._1_sync_single_on_demand;
 
-import java.time.Clock;
-import java.time.Instant;
-import java.util.concurrent.TimeUnit;
-import java.util.function.Supplier;
-
+import com.epam.concurrencyworkshop.__task.TokenResponse;
+import com.epam.concurrencyworkshop.cases._1_sync_single_on_demand._1.SynchronizedTokenHolder;
+import com.epam.concurrencyworkshop.cases._1_sync_single_on_demand._2.ReadWriteLockTokenHolder;
+import com.epam.concurrencyworkshop.cases._1_sync_single_on_demand._3.StampedLockTokenHolder;
+import com.epam.concurrencyworkshop.cases._1_sync_single_on_demand._4.StampedOptimisticLockTokenHolder;
+import com.epam.concurrencyworkshop.cases._1_sync_single_on_demand._5.MixedLockTokenHolder;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.Level;
 import org.openjdk.jmh.annotations.Mode;
@@ -17,11 +18,10 @@ import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
 import org.openjdk.jmh.runner.options.TimeValue;
 
-import com.epam.concurrencyworkshop.__task.TokenResponse;
-import com.epam.concurrencyworkshop.cases._1_sync_single_on_demand._1.SynchronizedTokenHolder;
-import com.epam.concurrencyworkshop.cases._1_sync_single_on_demand._2.ReadWriteLockTokenHolder;
-import com.epam.concurrencyworkshop.cases._1_sync_single_on_demand._3.StampedLockTokenHolder;
-import com.epam.concurrencyworkshop.cases._1_sync_single_on_demand._4.StampedOptimisticLockTokenHolder;
+import java.time.Clock;
+import java.time.Instant;
+import java.util.concurrent.TimeUnit;
+import java.util.function.Supplier;
 
 public class _2_ReadOnlyAccessTokenHolderBenchmark {
 
@@ -37,6 +37,8 @@ public class _2_ReadOnlyAccessTokenHolderBenchmark {
                 new StampedLockTokenHolder(tokenRetriever, Clock.systemUTC());
         private StampedOptimisticLockTokenHolder stampedOptimisticLockTokenHolder =
                 new StampedOptimisticLockTokenHolder(tokenRetriever, Clock.systemUTC());
+        private MixedLockTokenHolder mixedLockTokenHolder =
+                new MixedLockTokenHolder(tokenRetriever, Clock.systemUTC());
 
         @Setup(Level.Iteration)
         public void setup() {
@@ -62,6 +64,11 @@ public class _2_ReadOnlyAccessTokenHolderBenchmark {
     @Benchmark
     public String stampedOptimisticLockTokenHolder(BenchmarkState state) {
         return state.stampedOptimisticLockTokenHolder.getToken();
+    }
+
+    @Benchmark
+    public String mixedLockTokenHolder(BenchmarkState state) {
+        return state.mixedLockTokenHolder.getToken();
     }
 
     public static void main(String[] args) throws RunnerException {

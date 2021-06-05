@@ -4,6 +4,7 @@ import java.time.Clock;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Supplier;
 
+import com.epam.concurrencyworkshop.cases._1_sync_single_on_demand._5.MixedLockTokenHolder;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.Mode;
 import org.openjdk.jmh.annotations.Scope;
@@ -35,6 +36,8 @@ public class _1_TokenHoldersBenchmark {
                 new StampedLockTokenHolder(tokenRetriever, Clock.systemUTC());
         private StampedOptimisticLockTokenHolder stampedOptimisticLockTokenHolder =
                 new StampedOptimisticLockTokenHolder(tokenRetriever, Clock.systemUTC());
+        private MixedLockTokenHolder mixedLockTokenHolder =
+                new MixedLockTokenHolder(tokenRetriever, Clock.systemUTC());
     }
 
     @Benchmark
@@ -55,6 +58,11 @@ public class _1_TokenHoldersBenchmark {
     @Benchmark
     public String stampedOptimisticLockTokenHolder(BenchmarkState state) {
         return state.stampedOptimisticLockTokenHolder.getToken();
+    }
+
+    @Benchmark
+    public String mixedLockTokenHolder(BenchmarkState state) {
+        return state.mixedLockTokenHolder.getToken();
     }
 
     public static void main(String[] args) throws RunnerException {

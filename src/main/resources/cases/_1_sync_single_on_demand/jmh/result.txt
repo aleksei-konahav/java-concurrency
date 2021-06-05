@@ -4,6 +4,12 @@ __TokenHoldersBenchmark.stampedLockTokenHolder            thrpt    5   6,904 ± 
 __TokenHoldersBenchmark.stampedOptimisticLockTokenHolder  thrpt    5  21,439 ± 25,900  ops/us
 __TokenHoldersBenchmark.synchronizedTokenHolder           thrpt    5  12,813 ± 10,191  ops/us
 
+Benchmark                                                   Mode  Cnt   Score    Error   Units
+_1_TokenHoldersBenchmark.readWriteLockTokenHolder          thrpt    5   6,358 �  0,072  ops/us
+_1_TokenHoldersBenchmark.stampedLockTokenHolder            thrpt    5   7,090 �  0,168  ops/us
+_1_TokenHoldersBenchmark.stampedOptimisticLockTokenHolder  thrpt    5  23,236 � 11,689  ops/us
+_1_TokenHoldersBenchmark.synchronizedTokenHolder           thrpt    5  11,440 �  0,050  ops/us
+_1_TokenHoldersBenchmark.mixedLockTokenHolder              thrpt    5  82,498 �  1,080  ops/us
 
 
 
@@ -54,6 +60,13 @@ _ReadOnlyAccessTokenHolderBenchmark.readWriteLockTokenHolder          thrpt    5
 _ReadOnlyAccessTokenHolderBenchmark.stampedLockTokenHolder            thrpt    5   6,722 ± 0,389  ops/us
 _ReadOnlyAccessTokenHolderBenchmark.stampedOptimisticLockTokenHolder  thrpt    5  96,080 ± 8,782  ops/us
 _ReadOnlyAccessTokenHolderBenchmark.synchronizedTokenHolder           thrpt    5  11,331 ± 1,407  ops/us
+
+Benchmark                                                                Mode  Cnt   Score   Error   Units
+_2_ReadOnlyAccessTokenHolderBenchmark.readWriteLockTokenHolder          thrpt    5   6,314 ± 0,833  ops/us
+_2_ReadOnlyAccessTokenHolderBenchmark.stampedLockTokenHolder            thrpt    5   7,337 ± 0,071  ops/us
+_2_ReadOnlyAccessTokenHolderBenchmark.stampedOptimisticLockTokenHolder  thrpt    5  84,495 ± 4,652  ops/us
+_2_ReadOnlyAccessTokenHolderBenchmark.synchronizedTokenHolder           thrpt    5  11,832 ± 0,528  ops/us
+_2_ReadOnlyAccessTokenHolderBenchmark.mixedLockTokenHolder              thrpt    5  90,646 ± 2,989  ops/us
 
 
 

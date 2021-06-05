@@ -1,0 +1,29 @@
+Benchmark                                                                               Mode  Cnt   Score   Error   Units
+_1_2TokenHolderBenchmark.fullySynchronized2TokenHolder                                 thrpt    5  10,146 ± 0,135  ops/us
+_1_2TokenHolderBenchmark.fullySynchronized2TokenHolder:fullySynchronized2TokenHolder1  thrpt    5   5,172 ± 0,165  ops/us
+_1_2TokenHolderBenchmark.fullySynchronized2TokenHolder:fullySynchronized2TokenHolder2  thrpt    5   4,974 ± 0,148  ops/us
+
+Benchmark                                                                     Mode  Cnt  Score   Error   Units
+_1_2TokenHolderBenchmark.synchronized2TokenHolder                            thrpt    5  8,007 ± 0,638  ops/us
+_1_2TokenHolderBenchmark.synchronized2TokenHolder:synchronized2TokenHolder1  thrpt    5  4,377 ± 0,157  ops/us
+_1_2TokenHolderBenchmark.synchronized2TokenHolder:synchronized2TokenHolder2  thrpt    5  3,630 ± 0,506  ops/us
+
+Benchmark                                                                               Mode  Cnt   Score   Error   Units
+_1_2TokenHolderBenchmark.concurrentHashMap2TokenHolder                                 thrpt    5  66,976 ± 0,828  ops/us
+_1_2TokenHolderBenchmark.concurrentHashMap2TokenHolder:concurrentHashMap2TokenHolder1  thrpt    5  33,496 ± 0,515  ops/us
+_1_2TokenHolderBenchmark.concurrentHashMap2TokenHolder:concurrentHashMap2TokenHolder2  thrpt    5  33,480 ± 0,344  ops/us
+
+Benchmark                                                                                       Mode  Cnt   Score   Error   Units
+_1_2TokenHolderBenchmark.stampedLockHoldersMap2TokenHolder                                     thrpt    5  53,059 ± 0,669  ops/us
+_1_2TokenHolderBenchmark.stampedLockHoldersMap2TokenHolder:stampedLockHoldersMap2TokenHolder1  thrpt    5  26,614 ± 0,425  ops/us
+_1_2TokenHolderBenchmark.stampedLockHoldersMap2TokenHolder:stampedLockHoldersMap2TokenHolder2  thrpt    5  26,446 ± 0,267  ops/us
+
+Benchmark                                                             Mode  Cnt   Score    Error   Units
+_1_2TokenHolderBenchmark.caffeine2TokenHolder                        thrpt    5  75,581 ± 12,011  ops/us
+_1_2TokenHolderBenchmark.caffeine2TokenHolder:caffeine2TokenHolder1  thrpt    5  37,617 ±  6,809  ops/us
+_1_2TokenHolderBenchmark.caffeine2TokenHolder:caffeine2TokenHolder2  thrpt    5  37,964 ±  5,238  ops/us
+
+Benchmark                                                             Mode  Cnt   Score    Error   Units
+_1_2TokenHolderBenchmark.guava2TokenHolder                           thrpt    5  36,987 ±  0,969  ops/us
+_1_2TokenHolderBenchmark.guava2TokenHolder:guava2TokenHolder1        thrpt    5  18,512 ±  0,551  ops/us
+_1_2TokenHolderBenchmark.guava2TokenHolder:guava2TokenHolder2        thrpt    5  18,475 ±  0,437  ops/us

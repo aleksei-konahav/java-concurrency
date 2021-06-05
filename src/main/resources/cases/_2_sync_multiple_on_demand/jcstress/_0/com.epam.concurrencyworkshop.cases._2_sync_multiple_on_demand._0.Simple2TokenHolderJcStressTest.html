@@ -1,0 +1,180 @@
+
+<html>
+<head>
+<title>Java Concurrency Stress test report</title>
+ <style type="text/css">
+   * { font-family: Arial; }
+   table { font-size: 9pt; }
+   a { color: #000000; }
+   .progress { padding: 0px; }
+   .header { text-align: left; }
+   .section1 { font-size: 12pt; background-color: #BDB76B; color: #000000; font-weight: bold;}
+   .section2 { font-size: 12pt; background-color: #F0E68C; color: #000000; font-weight: bold;}
+   .cell1 { background-color: #FAFAD2; }
+   .cell2 { background-color: #EEE8AA; }
+   .passedProgress { background-color: #00AA00; color: #FFFFFF; text-align: center; font-weight: bold; }
+   .failedProgress { background-color: #FF0000; color: #FFFFFF; text-align: center; font-weight: bold; }
+   .passed { color: #00AA00; text-align: center; font-weight: bold; }
+   .failed { color: #FF0000; text-align: center; font-weight: bold; }
+   .interesting { color: #0000FF; text-align: center; font-weight: bold; }
+   .spec { color: #AAAA00; text-align: center; font-weight: bold; }
+   .endResult { font-size: 48pt; text-align: center; font-weight: bold; }
+ </style>
+</head>
+<body>
+<h1>com.epam.concurrencyworkshop.cases._2_sync_multiple_on_demand._0.Simple2TokenHolderJcStressTest</h1>
+<h3>Description and references</h3>
+<p>null</p>
+<h3>Environment</h3>
+<table>
+<tr>
+<td nowrap>java.specification.name</td>
+<td nowrap>Java Platform API Specification</td>
+</tr>
+<tr>
+<td nowrap>java.specification.vendor</td>
+<td nowrap>Oracle Corporation</td>
+</tr>
+<tr>
+<td nowrap>java.specification.version</td>
+<td nowrap>14</td>
+</tr>
+<tr>
+<td nowrap>java.vendor</td>
+<td nowrap>Oracle Corporation</td>
+</tr>
+<tr>
+<td nowrap>java.version</td>
+<td nowrap>14.0.1</td>
+</tr>
+<tr>
+<td nowrap>java.vm.name</td>
+<td nowrap>OpenJDK 64-Bit Server VM</td>
+</tr>
+<tr>
+<td nowrap>java.vm.vendor</td>
+<td nowrap>Oracle Corporation</td>
+</tr>
+<tr>
+<td nowrap>java.vm.version</td>
+<td nowrap>14.0.1+7</td>
+</tr>
+<tr>
+<td nowrap>os.arch</td>
+<td nowrap>amd64</td>
+</tr>
+<tr>
+<td nowrap>os.name</td>
+<td nowrap>Windows 10</td>
+</tr>
+<tr>
+<td nowrap>os.version</td>
+<td nowrap>10.0</td>
+</tr>
+</table>
+<h3>Test configurations</h3>
+<table>
+<tr>
+<td nowrap><b>TC 1</b></td>
+<td nowrap>JVM options: [-XX:+UnlockDiagnosticVMOptions, -XX:+WhiteBoxAPI, -XX:-RestrictContended, -Dfile.encoding=windows-1251, -Duser.country=RU, -Duser.language=en, -Duser.variant]
+Iterations: 5
+Time: 3000
+Stride: [10, 10000] (capped by NONE)</td>
+</tr>
+<tr>
+<td nowrap><b>TC 2</b></td>
+<td nowrap>JVM options: [-XX:+UnlockDiagnosticVMOptions, -XX:+WhiteBoxAPI, -XX:-RestrictContended, -Dfile.encoding=windows-1251, -Duser.country=RU, -Duser.language=en, -Duser.variant, -XX:+UnlockDiagnosticVMOptions, -XX:+StressLCM, -XX:+StressGCM]
+Iterations: 5
+Time: 3000
+Stride: [10, 10000] (capped by NONE)</td>
+</tr>
+<tr>
+<td nowrap><b>TC 3</b></td>
+<td nowrap>JVM options: [-XX:+UnlockDiagnosticVMOptions, -XX:+WhiteBoxAPI, -XX:-RestrictContended, -Dfile.encoding=windows-1251, -Duser.country=RU, -Duser.language=en, -Duser.variant, -XX:-TieredCompilation]
+Iterations: 5
+Time: 3000
+Stride: [10, 10000] (capped by NONE)</td>
+</tr>
+<tr>
+<td nowrap><b>TC 4</b></td>
+<td nowrap>JVM options: [-XX:+UnlockDiagnosticVMOptions, -XX:+WhiteBoxAPI, -XX:-RestrictContended, -Dfile.encoding=windows-1251, -Duser.country=RU, -Duser.language=en, -Duser.variant, -XX:-TieredCompilation, -XX:+UnlockDiagnosticVMOptions, -XX:+StressLCM, -XX:+StressGCM]
+Iterations: 5
+Time: 3000
+Stride: [10, 10000] (capped by NONE)</td>
+</tr>
+<tr>
+<td nowrap><b>TC 5</b></td>
+<td nowrap>JVM options: [-XX:+UnlockDiagnosticVMOptions, -XX:+WhiteBoxAPI, -XX:-RestrictContended, -Dfile.encoding=windows-1251, -Duser.country=RU, -Duser.language=en, -Duser.variant, -XX:TieredStopAtLevel=1]
+Iterations: 5
+Time: 3000
+Stride: [10, 10000] (capped by NONE)</td>
+</tr>
+<tr>
+<td nowrap><b>TC 6</b></td>
+<td nowrap>JVM options: [-XX:+UnlockDiagnosticVMOptions, -XX:+WhiteBoxAPI, -XX:-RestrictContended, -Dfile.encoding=windows-1251, -Duser.country=RU, -Duser.language=en, -Duser.variant, -Xint]
+Iterations: 5
+Time: 3000
+Stride: [10, 10000] (capped by NONE)</td>
+</tr>
+</table>
+<h3>Observed states</h3>
+<table width=100% cellpadding=5>
+<tr>
+<th>Observed state</th>
+<th nowrap>TC 1</th>
+<th nowrap>TC 2</th>
+<th nowrap>TC 3</th>
+<th nowrap>TC 4</th>
+<th nowrap>TC 5</th>
+<th nowrap>TC 6</th>
+<th>Expectation</th>
+<th>Interpretation</th>
+</tr>
+<tr>
+<td align='center'>2</td>
+<td align='right' width='5.0%' bgColor=#00ff00>104256666</td>
+<td align='right' width='5.0%' bgColor=#00ff00>97453798</td>
+<td align='right' width='5.0%' bgColor=#00ff00>102247781</td>
+<td align='right' width='5.0%' bgColor=#00ff00>84159819</td>
+<td align='right' width='5.0%' bgColor=#00ff00>40035892</td>
+<td align='right' width='5.0%' bgColor=#00ff00>897703</td>
+<td>ACCEPTABLE</td>
+<td>Token should be initialized only twice (for different keys)</td>
+</tr>
+<tr>
+<td align='center'>3</td>
+<td align='right' width='5.0%' bgColor=#ff0000>8841182</td>
+<td align='right' width='5.0%' bgColor=#ff0000>9025629</td>
+<td align='right' width='5.0%' bgColor=#ff0000>13453531</td>
+<td align='right' width='5.0%' bgColor=#ff0000>11612748</td>
+<td align='right' width='5.0%' bgColor=#ff0000>9011627</td>
+<td align='right' width='5.0%' bgColor=#ff0000>634043</td>
+<td>FORBIDDEN</td>
+<td>Token was initialized not only twice</td>
+</tr>
+<tr>
+<td align='center'>4</td>
+<td align='right' width='5.0%' bgColor=#ff0000>3029543</td>
+<td align='right' width='5.0%' bgColor=#ff0000>3278604</td>
+<td align='right' width='5.0%' bgColor=#ff0000>5161139</td>
+<td align='right' width='5.0%' bgColor=#ff0000>6174204</td>
+<td align='right' width='5.0%' bgColor=#ff0000>10117802</td>
+<td align='right' width='5.0%' bgColor=#ff0000>3363945</td>
+<td>FORBIDDEN</td>
+<td>Token was initialized not only twice</td>
+</tr>
+<tr>
+<td></td>
+<td align='center' bgColor='red '>FAILED</td>
+<td align='center' bgColor='red '>FAILED</td>
+<td align='center' bgColor='red '>FAILED</td>
+<td align='center' bgColor='red '>FAILED</td>
+<td align='center' bgColor='red '>FAILED</td>
+<td align='center' bgColor='red '>FAILED</td>
+<td></td>
+<td></td>
+</tr>
+</table>
+<h3>Auxiliary data</h3>
+</body>
+</html>
