@@ -1,0 +1,2 @@
+Benchmark                                          Mode  Cnt    Score   Error   Units
+_3_3TokenHolderBenchmark.synchronizedTokenHolder  thrpt    5  270,362 ± 5,181  ops/us
